@@ -1,0 +1,80 @@
+(gdb) b main
+Breakpoint 1 at 0x828: file p7original.c, line 31.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p7original.c:31
+31    c1=input();
+(gdb) s
+input () at p7original.c:9
+9   {
+(gdb) n
+11    printf("enter the real part");
+(gdb) n
+12    scanf("%f", &c.real);
+(gdb) n
+enter the real part2
+13    printf("enter the imaginary part");
+(gdb) n
+14    scanf("%f", &c.imaginary);
+(gdb) n
+enter the imaginary part4
+15    return c;
+(gdb) n
+16  }
+(gdb) p c.real
+$1 = 2
+(gdb) p c.imaginary
+$2 = 4
+(gdb) n
+main () at p7original.c:32
+32    c2=input();
+(gdb) s
+input () at p7original.c:9
+9   {
+(gdb) n
+11    printf("enter the real part");
+(gdb) n
+12    scanf("%f", &c.real);
+(gdb) n
+enter the real part3
+13    printf("enter the imaginary part");
+(gdb) n
+14    scanf("%f", &c.imaginary);
+(gdb) n
+enter the imaginary part5
+15    return c;
+(gdb) n
+16  }
+(gdb) p c.real
+$3 = 3
+(gdb) p c.imaginary
+$4 = 5
+(gdb) n
+main () at p7original.c:33
+33    sum=add(c1,c2);
+(gdb) s
+add (a=..., b=...) at p7original.c:20
+20    sum.real=a.real+b.real;
+(gdb) n
+21    sum.imaginary=a.imaginary+b.imaginary;
+(gdb) n
+22    return sum;
+(gdb) n
+23  }
+(gdb) p sum
+$5 = {real = 5, imaginary = 9}
+(gdb) n
+main () at p7original.c:34
+34    output(sum);
+(gdb) s
+output (sum=...) at p7original.c:26
+26    printf("the sum is %0.1f+%0.1fi ",sum.real,sum.imaginary);
+(gdb) n
+27  }
+(gdb) p sum
+$6 = {real = 5, imaginary = 9}
+(gdb) n
+main () at p7original.c:35
+35    return 0;

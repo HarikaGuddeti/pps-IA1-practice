@@ -1,0 +1,77 @@
+(gdb) b main
+Breakpoint 1 at 0x90e: file p6original.c, line 61.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p6original.c:61
+61  {
+(gdb) n
+64    input_2_strng(a,b);
+(gdb) s
+input_2_strng (a=0x7ffef4353b40 "\001", 
+    b=0x7ffef4353b60 "\200\t@\262\315U") at p6original.c:4
+4     printf("Enter a word ");
+(gdb) n
+5     scanf("%s",a);
+(gdb) n
+Enter a word hello
+6     printf("Enter a word ");
+(gdb) n
+7     scanf("%s",b);
+(gdb) n
+Enter a word world 
+8   }
+(gdb) n
+main () at p6original.c:65
+65    ans=cmp(a,b);
+(gdb) s
+cmp (a=0x7ffef4353b40 "hello", b=0x7ffef4353b60 "world")
+    at p6original.c:11
+11    int i=0,res;
+(gdb) n
+12    while(a[i]!='\0' && b[i]!='\0')
+(gdb) n
+14      if(a[i]>b[i])
+(gdb) n
+19      else if(b[i]>a[i])
+(gdb) n
+21        res=1;
+(gdb) n
+22        break;
+(gdb) n
+29    if(a[i]=='\0')
+(gdb) n
+33    else if(b[i]=='\0')
+(gdb) n
+37    if(a[i]=='\0' && b[i]=='\0')
+(gdb) n
+41    return res;
+(gdb) n
+42  }
+(gdb) p res
+$1 = 1
+(gdb) n
+main () at p6original.c:66
+66    out(a,b,ans);
+(gdb) s
+out (a=0x7ffef4353b40 "hello", b=0x7ffef4353b60 "world", ans=1)
+    at p6original.c:46
+46    if(ans==-1)
+(gdb) n
+50    if(ans==1)
+(gdb) n
+52      printf("%s is greater than %s",b,a);
+(gdb) n
+54    if(ans==0)
+(gdb) n
+58  }
+(gdb) n
+main () at p6original.c:67
+67    return 0;
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 212] will be killed.
+
+Quit anyway? (y or n
