@@ -1,114 +1,119 @@
 (gdb) b main
-Breakpoint 1 at 0x88a: file p4original.c, line 32.
+Breakpoint 1 at 0x8ab: file p4original.c, line 40.
 (gdb) r
-Starting program: /home/runner/pps-IA1-practice/a.out 
+Starting program: /home/runner/pps-IA1-practice-2/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p4original.c:32
-32  {
+Breakpoint 1, main () at p4original.c:40
+40  {
 (gdb) n
-34    n=input();
+42    n=input();
 (gdb) s
 input () at p4original.c:3
 3   {
 (gdb) n
-5     printf("enter the value of n\n");
+5     printf("enter no. of inputs");
 (gdb) n
-enter the value of n
-6     scanf("%d", &n);
+6     scanf("%d",&n);
 (gdb) n
-3
+enter no. of inputs3
 7     return n;
-(gdb) n 
-8   }
+(gdb) n
+9   }
 (gdb) p n
 $1 = 3
 (gdb) n
-main () at p4original.c:35
-35    aray(n,a);
+main () at p4original.c:43
+43    int a[n];
 (gdb) s
-aray (n=3, a=0x7ffc0a07fdf0) at p4original.c:12
-12    for (i=0; i<n; i++)
+44    inputarray(n,a);
+(gdb) s
+inputarray (n=3, a=0x7ffcfa4d8040) at p4original.c:13
+13    for(int i=0;i<n;i++)
 (gdb) n
-14      printf("enter an element\n");
+15      printf("enter no.s: ");
 (gdb) n
-enter an element
-15      scanf("%d", &a[i]);
+16      scanf("%d",&a[i]);
 (gdb) n
-1
-12    for (i=0; i<n; i++)
+enter no.s: 1
+13    for(int i=0;i<n;i++)
+(gdb) n
+15      printf("enter no.s: ");
+(gdb) n
+16      scanf("%d",&a[i]);
+(gdb) n
+enter no.s: 2
+13    for(int i=0;i<n;i++)
+(gdb) n
+15      printf("enter no.s: ");
+(gdb) n
+16      scanf("%d",&a[i]);
+(gdb) n
+enter no.s: 3
+13    for(int i=0;i<n;i++)
+(gdb) n
+19  }
+(gdb) n
+main () at p4original.c:45
+45    sum=sumaray(n,a);
+(gdb) s
+sumaray (n=3, a=0x7ffcfa4d8040) at p4original.c:22
+22    int sum=0;
+(gdb) n
+23    for(int i=0;i<n;i++)
+(gdb) n
+25      sum+=a[i];
+(gdb) n
+23    for(int i=0;i<n;i++)
 (gdb) p i
 $2 = 0
 (gdb) n
-14      printf("enter an element\n");
-(gdb) n
-enter an element
-15      scanf("%d", &a[i]);
-(gdb) n
-2
-12    for (i=0; i<n; i++)
-(gdb) p i
+25      sum+=a[i];
+(gdb) p sum
 $3 = 1
 (gdb) n
-14      printf("enter an element\n");
-(gdb) n
-enter an element
-15      scanf("%d", &a[i]);
-(gdb) n
-3
-12    for (i=0; i<n; i++)
+23    for(int i=0;i<n;i++)
 (gdb) p i
-$4 = 2
+$4 = 1
 (gdb) n
-17  }
+25      sum+=a[i];
+(gdb) p sum
+$5 = 3
 (gdb) n
-main () at p4original.c:36
-36    sum=add(n,a);
+23    for(int i=0;i<n;i++)
+(gdb) p i
+$6 = 2
+(gdb) n
+27    return sum;
+(gdb) n
+28  }
+(gdb) p sum
+$7 = 6
+(gdb) n
+main () at p4original.c:46
+46    output(n,a,sum);
 (gdb) s
-add (n=3, a=0x7ffc0a07fdf0) at p4original.c:20
-20    int sum=0,i;
+output (n=3, a=0x7ffcfa4d8040, sum=6) at p4original.c:31
+31    for(int i=0;i<n-1;i++)
 (gdb) n
-21    for(i=0; i<n; i++)
+33      printf("%d +",a[i]);
 (gdb) n
-23      sum=sum+a[i];
-(gdb) p sum
-$5 = 0
+31    for(int i=0;i<n-1;i++)
 (gdb) n
-21    for(i=0; i<n; i++)
+33      printf("%d +",a[i]);
 (gdb) n
-23      sum=sum+a[i];
-(gdb) p sum
-$6 = 1
+31    for(int i=0;i<n-1;i++)
 (gdb) n
-21    for(i=0; i<n; i++)
+36    printf("%d is %d\n",a[n-1],sum);
 (gdb) n
-23      sum=sum+a[i];
-(gdb) p sum
-$7 = 3
+1 +2 +3 is 6
+37  }
 (gdb) n
-21    for(i=0; i<n; i++)
-(gdb) n
-25    return sum;
-(gdb) n
-26  }
-(gdb) p sum
-$8 = 6
-(gdb) n
-main () at p4original.c:37
-37    output(sum);
-(gdb) s
-output (sum=6) at p4original.c:29
-29    printf("sum is %d", sum);
-(gdb) n
-30  }
-(gdb) p sum
-$9 = 6
-(gdb) n
-main () at p4original.c:38
-38    return 0;
+main () at p4original.c:47
+47    return 0;
 (gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 389] will be killed.
+    Inferior 1 [process 81] will be killed.
 
-Quit anyway? (y or n
+Quit anyway? (y or n) 

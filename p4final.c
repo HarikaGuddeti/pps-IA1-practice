@@ -1,39 +1,48 @@
-#include<stdio.h>
+#include <stdio.h>
 int input()
 {
   int n;
-  printf("enter the value of n\n");
-  scanf("%d", &n);
+  printf("enter no. of inputs");
+  scanf("%d",&n);
   return n;
+
 }
-int aray(int n, int a[n])
+
+void inputarray(int n, int a[n])
 {
-  int i;
-  for (i=0; i<n; i++)
+  for(int i=0;i<n;i++)
   {
-    printf("enter an element\n");
-    scanf("%d", &a[i]);
+    printf("enter no.s: ");
+    scanf("%d",&a[i]);
   }
+
 }
-int add(int n, int a[n])
+int sumaray(int n,int a[n])
 {
-  int sum=0,i;
-  for(i=0; i<n; i++)
+  int sum=0;
+  for(int i=0;i<n;i++)
   {
-    sum=sum+a[i];
+    sum+=a[i];
   }
   return sum;
 }
-int output(int sum)
+void output(int n,int a[n],int sum)
 {
-  printf("sum is %d", sum);
+  for(int i=0;i<n-1;i++)
+  {
+    printf("%d +",a[i]);
+   
+  }
+  printf("%d is %d\n",a[n-1],sum);
 }
+
 int main()
 {
-  int n,sum,a[10];
+  int n,sum;
   n=input();
-  aray(n,a);
-  sum=add(n,a);
-  output(sum);
+  int a[n];
+  inputarray(n,a);
+  sum=sumaray(n,a);
+  output(n,a,sum);
   return 0;
 }
