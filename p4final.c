@@ -6,7 +6,7 @@ int input()
   scanf("%d", &n);
   return n;
 }
-int aray(int n, int a[10])
+int aray(int n, int a[n])
 {
   int i;
   for (i=0; i<n; i++)
@@ -15,7 +15,7 @@ int aray(int n, int a[10])
     scanf("%d", &a[i]);
   }
 }
-int add(int n, int a[10])
+int add(int n, int a[n])
 {
   int sum=0,i;
   for(i=0; i<n; i++)

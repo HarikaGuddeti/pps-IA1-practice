@@ -10,14 +10,16 @@ int cmp(int a, int b, int c)
 {
   if (a>b && a>c)
   return a;
-  else if (b>a && b>c)
+
+  else if (b>c)
   return b;
+
   else
   return c;
 }
-void output(int l)
+void output(int a, int b, int c, int l)
 {
-  printf("the largest number is %d", l);
+  printf("the largest number in %d,%d and %d is %d\n", a,b,c,l);
 }
 int main()
 {
@@ -26,6 +28,6 @@ int main()
   y=input();
   z=input();
   l=cmp(x,y,z);
-  output(l);
+  output(x,y,z,l);
   return 0;
 }
